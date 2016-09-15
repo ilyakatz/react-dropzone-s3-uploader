@@ -1,11 +1,11 @@
 import React, {PropTypes} from 'react'
-import {ProgressBar} from 'react-bootstrap'
+import { Line } from 'rc-progress';
 import S3Upload from 'react-s3-uploader/s3upload'
 import Dropzone from 'react-dropzone'
 
 export default class DropzoneS3Uploader extends React.Component {
 
-  static propTypes = {
+  static propTypes={
     host: PropTypes.string,
     server: PropTypes.string,
     s3_url: PropTypes.string,
@@ -140,7 +140,7 @@ export default class DropzoneS3Uploader extends React.Component {
     return (
       <Dropzone onDrop={this.handleDrop} {...dropzone_props} >
         {contents}
-        {progress ? (<ProgressBar now={progress} label="%(percent)s%" srOnly />) : null}
+        {progress ? (<Line percent={progress} strokeWidth="4" strokeColor="#D3D3D3" />) : null}
         {error ? (<small>{error}</small>) : null}
       </Dropzone>
     )
